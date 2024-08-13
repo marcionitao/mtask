@@ -1,7 +1,9 @@
+import { TaskForm } from './task-form'
+
 export default function New() {
   return (
-    <div>
-      <h1>New</h1>
+    <div className="flex h-screen items-center justify-center">
+      <TaskForm />
     </div>
   )
 }
