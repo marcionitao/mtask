@@ -1,3 +1,4 @@
+import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -7,6 +8,7 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import prisma from '@/lib/prisma'
+import clsx from 'clsx'
 
 export default async function Home() {
   // obtendo a lista de tarefas com prisma
@@ -17,8 +19,18 @@ export default async function Home() {
     <div className="grid grid-cols-3 gap-4">
       {tasks.map((task) => (
         <Card key={task.id}>
-          <CardHeader>
+          <CardHeader className="flex flex-row justify-between">
             <CardTitle>{task.name}</CardTitle>
+            <Badge
+              className={clsx({
+                'bg-red-500 text-white': task.priority === 'high',
+                'bg-yellow-500': task.priority === 'medium',
+                'bg-green-500': task.priority === 'low',
+                'bg-blue-500': task.priority === 'urgent',
+              })}
+            >
+              {task.priority}
+            </Badge>
           </CardHeader>
           <CardContent>
             <p>{task.description}</p>
