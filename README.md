@@ -11,3 +11,4 @@ mTask is a task manager for your daily tasks
 - [Prisma](https://www.prisma.io/)
 - [Sqlite](https://www.sqlite.org/)
 - [schadcn/next-ui](https://ui.shadcn.com/docs/installation/next)
+- [clsx](https://www.npmjs.com/package/clsx)
