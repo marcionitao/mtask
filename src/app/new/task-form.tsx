@@ -19,33 +19,10 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
-import prisma from '@/lib/prisma'
-import { redirect } from 'next/navigation'
+import { createTask } from '@/actions/task-actions'
 
 export function TaskForm() {
-  // Server Actions
-  async function createTask(formData: FormData) {
-    'use server'
-    const name = formData.get('name')?.toString()
-    const description = formData.get('description')?.toString()
-    const priority = formData.get('priority')?.toString()
-
-    if (!name || !description || !priority) {
-      return
-    }
-
-    const newTask = await prisma.task.create({
-      data: {
-        name,
-        description,
-        priority,
-      },
-    })
-
-    console.log('Created new task:', newTask)
-
-    redirect('/') // função 'redirect' faz a rota ser redirecionada para a rota '/' no servidor
-  }
+  //
   return (
     <form action={createTask}>
       <Card className="w-[350px]">

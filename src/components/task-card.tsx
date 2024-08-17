@@ -9,6 +9,7 @@ import {
 } from '@/components/ui/card'
 import { Task } from '@prisma/client'
 import clsx from 'clsx' // clsx e um pacote que ajuda a criar classes dinamicamente
+import TaskButtonDelete from './task-button-delete'
 
 export default async function TaskCard({ task }: { task: Task }) {
   return (
@@ -35,7 +36,7 @@ export default async function TaskCard({ task }: { task: Task }) {
         </CardContent>
         <CardFooter className="flex gap-x-2 justify-end">
           <Button>Edit</Button>
-          <Button variant="destructive">Delete</Button>
+          <TaskButtonDelete taskId={task.id} />
         </CardFooter>
       </Card>
     </div>
