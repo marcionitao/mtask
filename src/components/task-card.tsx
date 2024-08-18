@@ -1,5 +1,5 @@
 import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
 import {
   Card,
   CardContent,
@@ -10,6 +10,7 @@ import {
 import { Task } from '@prisma/client'
 import clsx from 'clsx' // clsx e um pacote que ajuda a criar classes dinamicamente
 import TaskButtonDelete from './task-button-delete'
+import Link from 'next/link'
 
 export default async function TaskCard({ task }: { task: Task }) {
   return (
@@ -35,7 +36,12 @@ export default async function TaskCard({ task }: { task: Task }) {
           </span>
         </CardContent>
         <CardFooter className="flex gap-x-2 justify-end">
-          <Button>Edit</Button>
+          <Link
+            href={`/task/${task.id}/edit`}
+            className={buttonVariants({ variant: 'secondary' })}
+          >
+            Edit
+          </Link>
           <TaskButtonDelete taskId={task.id} />
         </CardFooter>
       </Card>
