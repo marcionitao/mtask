@@ -37,7 +37,7 @@ export default async function TaskCard({ task }: { task: Task }) {
         </CardContent>
         <CardFooter className="flex gap-x-2 justify-end">
           <Link
-            href={`/task/${task.id}/edit`}
+            href={`/tasks/${task.id}/edit`}
             className={buttonVariants({ variant: 'secondary' })}
           >
             Edit

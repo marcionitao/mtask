@@ -1,8 +1,8 @@
 'use server'
 
 import prisma from '@/lib/prisma'
-import { redirect } from 'next/navigation'
 import { revalidatePath } from 'next/cache'
+import { redirect } from 'next/navigation'
 
 export async function createTask(formData: FormData) {
   const name = formData.get('name')?.toString()
@@ -63,5 +63,5 @@ export async function updateTask(formData: FormData) {
     },
   })
 
-  revalidatePath('/')
+  redirect('/')
 }
